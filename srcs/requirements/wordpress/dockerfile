@@ -1,0 +1,36 @@
+FROM debian:bookworm
+
+RUN apt-get update && apt-get install -y \
+		php8.2-fpm \
+		php8.2-mysql \
+		php8.2-curl \
+		php8.2-gd \
+		php8.2-mbstring \
+		php8.2-xml \
+		php8.2-zip \
+		wget \
+		mariadb-client
+
+RUN wget https://wordpress.org/wordpress-6.4.3.tar.gz
+
+RUN tar -xzf wordpress-6.4.3.tar.gz
+
+RUN mkdir -p /var/www/wordpress_backup
+
+RUN cp -r wordpress/* /var/www/wordpress_backup/
+
+RUN rm -rf wordpress wordpress-6.4.3.tar.gz
+
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    chmod +x wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp
+
+COPY conf/www.conf /etc/php/8.2/fpm/pool.d/www.conf
+
+COPY tools/wordpress.sh /usr/local/bin/wordpress.sh
+
+RUN chmod +x /usr/local/bin/wordpress.sh
+
+RUN mkdir -p /run/php && chown www-data:www-data /run/php
+
+ENTRYPOINT ["/usr/local/bin/wordpress.sh"]
