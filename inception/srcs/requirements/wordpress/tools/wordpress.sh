@@ -24,7 +24,7 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
 fi
 
 if ! wp core is-installed --allow-root --path=/var/www/wordpress; then
-    echo "Instalando o WordPress..."
+
     wp core install --allow-root \
         --url=$DOMAIN_NAME \
         --title="Inception" \
@@ -33,7 +33,6 @@ if ! wp core is-installed --allow-root --path=/var/www/wordpress; then
         --admin_email=$WP_ADMIN_EMAIL \
         --path=/var/www/wordpress
 
-    echo "Criando o segundo usuário..."
     wp user create $WP_USER $WP_USER_EMAIL \
         --role=author \
         --user_pass=$WP_USER_PASSWORD \
