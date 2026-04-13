@@ -116,6 +116,8 @@ https://kgagliar.42.fr/wp-admin
 
 ## Resources
 
+### Official Documentation
+
 - [Docker official documentation](https://docs.docker.com/)
 - [Docker Compose reference](https://docs.docker.com/compose/)
 - [NGINX documentation](https://nginx.org/en/docs/)
@@ -125,12 +127,17 @@ https://kgagliar.42.fr/wp-admin
 - [OpenSSL documentation](https://www.openssl.org/docs/)
 - [TLS 1.3 RFC](https://www.rfc-editor.org/rfc/rfc8446)
 
-### AI Usage
+### Video References
 
-Claude (Anthropic) was used throughout this project as a learning and guidance tool. Specifically:
+- [Docker Tutorial](https://www.youtube.com/watch?v=D_ha0g9yS2E&t=5s)
+- [Docker Compose Tutorial](https://www.youtube.com/watch?v=gd_cUmwzgEM)
+- [NGINX Tutorial](https://www.youtube.com/watch?v=Y6kz884AoME)
+- [WordPress with Docker](https://www.youtube.com/watch?v=ntbpIfS44Gw&t=685s)
+- [MariaDB with Docker](https://www.youtube.com/watch?v=DdoncfOdru8)
+
+### AI Usage
 
 - **Understanding concepts**: Docker, TLS/SSL, PHP-FPM, MariaDB configuration, shell scripting
 - **Guidance on structure**: Directory layout, Dockerfile best practices, docker-compose.yml syntax
-- **Debugging**: Identifying errors in scripts and configuration files
 
 All code was written and understood by the student — AI was used as a teacher, not as a code generator.
